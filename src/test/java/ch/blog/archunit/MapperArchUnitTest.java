@@ -16,7 +16,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static java.util.Collections.emptySet;
 import static java.util.stream.Collectors.toSet;
 
-@AnalyzeClasses(packages = "ch.blog.archunit")
+@AnalyzeClasses(packages = {"ch.blog.archunit", "ch.blog.archunit.test"})
 public class MapperArchUnitTest {
 
     private static final String MAPPER_CLASS_SUFFIX = "Mapper";
@@ -26,7 +26,7 @@ public class MapperArchUnitTest {
     public static final ArchRule relevant_classes_should_have_tests =
             classes()
                     .that()
-                    .haveSimpleNameEndingWith(MAPPER_CLASS_SUFFIX).and()
+                    .haveSimpleNameContaining(MAPPER_CLASS_SUFFIX).and()
                     .areTopLevelClasses()
                     .and().areNotInterfaces()
                     .and().areNotRecords()
@@ -34,7 +34,7 @@ public class MapperArchUnitTest {
                     .should(haveACorrespondingClassEndingWith(TEST_CLASS_SUFFIX));
 
     private static ArchCondition<JavaClass> haveACorrespondingClassEndingWith(String testClassSuffix) {
-        return new ArchCondition<JavaClass>("have a corresponding class with suffix " + testClassSuffix) {
+        return new ArchCondition<>("have a corresponding class with suffix " + testClassSuffix) {
             Set<String> testedClasseNames = emptySet();
 
             @Override

@@ -1,4 +1,7 @@
-package ch.blog.archunit;
+package ch.blog.archunit.mapper;
+
+import ch.blog.archunit.ModelDto;
+import ch.blog.archunit.ModelEntity;
 
 /**
  *
