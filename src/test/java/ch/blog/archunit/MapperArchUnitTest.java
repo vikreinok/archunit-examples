@@ -16,7 +16,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static java.util.Collections.emptySet;
 import static java.util.stream.Collectors.toSet;
 
-@AnalyzeClasses(packages = {"ch.blog.archunit", "ch.blog.archunit.test"})
+@AnalyzeClasses(packages = {"ch.blog.archunit"})
 public class MapperArchUnitTest {
 
     private static final String MAPPER_CLASS_SUFFIX = "Mapper";
