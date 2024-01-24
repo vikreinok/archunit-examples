@@ -7,6 +7,7 @@ import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
+import com.tngtech.archunit.lang.syntax.elements.GivenClassesConjunction;
 
 import java.util.Collection;
 import java.util.Set;
@@ -24,14 +25,18 @@ public class MapperArchUnitTest {
 
     @ArchTest
     public static final ArchRule relevant_classes_should_have_tests =
-            classes()
-                    .that()
-                    .haveSimpleNameContaining(MAPPER_CLASS_SUFFIX).and()
-                    .areTopLevelClasses()
-                    .and().areNotInterfaces()
-                    .and().areNotRecords()
-                    .and().areNotEnums()
+            mapperClassesAndTest()
                     .should(haveACorrespondingClassEndingWith(TEST_CLASS_SUFFIX));
+
+    private static GivenClassesConjunction mapperClassesAndTest() {
+        return classes()
+                .that()
+                .haveSimpleNameContaining(MAPPER_CLASS_SUFFIX).and()
+                .areTopLevelClasses()
+                .and().areNotInterfaces()
+                .and().areNotRecords()
+                .and().areNotEnums();
+    }
 
     private static ArchCondition<JavaClass> haveACorrespondingClassEndingWith(String testClassSuffix) {
         return new ArchCondition<>("have a corresponding class with suffix " + testClassSuffix) {
