@@ -13,6 +13,8 @@ public class GeneralArchUnitTest {
 
     @ArchTest
     public static final ArchRule should_not_use_strd_streams = noClasses().should(GeneralCodingRules.ACCESS_STANDARD_STREAMS);
+
+    @ArchTest
     public static final ArchRule should_not_use_joda_time = noClasses().should(GeneralCodingRules.USE_JODATIME);
 
 }
