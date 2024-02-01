@@ -8,12 +8,14 @@ import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 import com.tngtech.archunit.lang.syntax.elements.GivenClassesConjunction;
+import com.tngtech.archunit.library.freeze.TextFileBasedViolationStore;
 
 import java.util.Collection;
 import java.util.Set;
 
 import static com.tngtech.archunit.lang.ConditionEvent.createMessage;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
+import static com.tngtech.archunit.library.freeze.FreezingArchRule.freeze;
 import static java.util.Collections.emptySet;
 import static java.util.stream.Collectors.toSet;
 
@@ -24,9 +26,10 @@ public class MapperArchUnitTest {
     private static final String TEST_CLASS_SUFFIX = "Test";
 
     @ArchTest
-    public static final ArchRule relevant_classes_should_have_tests =
-            mapperClassesAndTest()
-                    .should(haveACorrespondingClassEndingWith(TEST_CLASS_SUFFIX));
+    public static final ArchRule mapper_classes_should_have_tests =
+            freeze(mapperClassesAndTest()
+                    .should(haveACorrespondingClassEndingWith(TEST_CLASS_SUFFIX)))
+                    .persistIn(new TextFileBasedViolationStore(a -> "violations_mapper_classes_should_have_tests.txt"));
 
     private static GivenClassesConjunction mapperClassesAndTest() {
         return classes()
