@@ -4,3 +4,4 @@ https://viktorreinok.medium.com/how-to-use-archunit-to-enforce-design-practical-
 
 
 - Testing that mapper has a test
+- ArchUnit general rules examples
