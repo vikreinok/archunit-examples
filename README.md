@@ -5,3 +5,4 @@ https://viktorreinok.medium.com/how-to-use-archunit-to-enforce-design-practical-
 
 - Testing that mapper has a test
 - ArchUnit general rules examples
+- Test that ensures that classes ending with Mapper are in the mapper package
