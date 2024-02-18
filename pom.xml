@@ -17,6 +17,11 @@
 		<java.version>17</java.version>
 		<archunit.version>1.2.1</archunit.version>
 	</properties>
+	<contributors>
+		<contributor>
+			<name>Viktor Reinok</name>
+		</contributor>
+	</contributors>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
