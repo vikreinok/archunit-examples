@@ -6,8 +6,11 @@ import ch.blog.archunit.ModelEntity;
 /**
  *
  */
-public class Mapper {
+public final class Mapper {
 
+    private Mapper() {
+        // prevent instantiation
+    }
 
     public static ModelEntity mapDtoToEntity(ModelDto dto) {
         ModelEntity entity = new ModelEntity();
