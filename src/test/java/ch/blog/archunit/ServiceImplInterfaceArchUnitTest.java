@@ -11,7 +11,8 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 public class ServiceImplInterfaceArchUnitTest {
 
     @ArchTest
-    public static final ArchRule serviceimpl_classes_should_implement_serviceinterface = classes().that().haveSimpleNameEndingWith("ServiceImpl")
+    public static final ArchRule service_impl_classes_should_implement_service_interface =
+            classes().that().haveSimpleNameEndingWith("ServiceImpl")
             .should().implement(simpleNameEndingWith("Service"));
 
 }
