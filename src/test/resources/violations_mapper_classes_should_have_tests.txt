@@ -1,0 +1,1 @@
+Class <ch.blog.archunit.mapper.MapperTwo> has no corresponding test class in (MapperTwo.java:0)
